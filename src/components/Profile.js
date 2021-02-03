@@ -3,7 +3,6 @@ import {useState, useEffect, useLayoutEffect} from 'react';
 import Axios from 'axios';
 import '../App.css';
 
-
 function Profile(){
 
     const [user,setUser] = useState(null);
@@ -12,7 +11,6 @@ function Profile(){
 
     useEffect( () => {
         if(firstTime){
-            console.log('Buscaré la info');
             setFirstTime(false);
         }
         return() => {
@@ -30,7 +28,6 @@ function Profile(){
                 setUser(response.data);
             });
             Axios.get('https://api.github.com/repos/sam-hero/cs-commits/stats/commit_activity').then( (response) => {
-                console.log(response.data[51])
                 setCommits(response.data[51]);//lastWeek
             });
         }
@@ -71,9 +68,12 @@ function Profile(){
                     </Col>
                     <Col sm="6">
                         <Card>
-                            <h5> Graph </h5>
-                            Commits this week { commits ? commits.total : 0}
-                            
+                            <h5> Commits this week </h5>
+                             { commits ? 
+                                <h2>
+                                    {commits.total}
+                                </h2>
+                            : 0}
                         </Card>
                     </Col>
                 </Row>

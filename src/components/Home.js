@@ -9,7 +9,6 @@ function Home(){
 
     useEffect( () => {
         if(firstTime){
-            console.log('Buscaré la info');
             setFirstTime(false);
         }
         return() => {
