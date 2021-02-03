@@ -3,7 +3,7 @@
 ## Getting Starter
 This is a platform to show the last movements in a repo, at this moment is static to this repo but we can add params to make it work for any repo
 
-you can clone this project by using the next code on your terminal
+you can clone this project by using the next code on your terminal 
 
 ` git clone git@github.com:sam-hero/cs-commits.git` 
 

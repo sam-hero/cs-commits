@@ -1,4 +1,4 @@
-import {Row, Col , ListGroup , Card} from 'react-bootstrap'
+import {Row, Col , ListGroup , Card,Image} from 'react-bootstrap'
 import Axios from 'axios';
 import {useState, useEffect, useLayoutEffect} from 'react';
 
@@ -75,7 +75,11 @@ function Commits(){
                                         </span>
                                     </div>    
                                 :
-                                <h6>Select a Commit</h6>   
+                                <div>                                    
+                                    <h6>Select a Commit</h6>   
+                                    <Image src="emptystate.jpg"/>
+                                </div>
+
                             }
                         </Card.Body>
                     </Card>

@@ -67,7 +67,7 @@ function Profile(){
                         </Card>
                     </Col>
                     <Col sm="6">
-                        <Card>
+                        <Card className="cards">
                             <h5> Commits this week </h5>
                              { commits ? 
                                 <h2>

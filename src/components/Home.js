@@ -12,7 +12,7 @@ function Home(){
             setFirstTime(false);
         }
         return() => {
-            console.log('Salí de pantalla');
+            return 
         }
     },[firstTime]);
 
@@ -53,27 +53,27 @@ function Home(){
                 <br/>
                 <Row>
                     <Col xs="6">
-                        <Card>
+                        <Card className="cards">
                             <h5>Language</h5>
                             {repo.language}
                         </Card>
                     </Col>
                     <Col xs="6">
-                        <Card>
+                        <Card className="cards">
                             <h5>Created</h5>
                             {repo.created_at}
                         </Card>
                     </Col>
                     
                     <Col xs="6">
-                        <Card>
+                        <Card className="cards">
                             <h5>Last Push</h5>
                             {repo.pushed_at}
                         </Card>
                     </Col>
 
                     <Col xs="6">
-                        <Card>
+                        <Card className="cards">
                             <h5>Size</h5>
                             {repo.size}
                         </Card>
