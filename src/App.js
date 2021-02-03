@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import Commits from './components/Commits';
 import { Container, Nav } from 'react-bootstrap';
 import { Link,Route } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ function App() {
       <Container>
         <Route exact={true} path="/" component={Home}/>
         <Route exact={true} path="/profile" component={Profile}/>
+        <Route exact={true} path="/Commits" component={Commits}/>
       </Container>
     </div>
   );
