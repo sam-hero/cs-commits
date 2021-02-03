@@ -1,21 +1,52 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import {useState, useEffect, useLayoutEffect} from 'react';
+import Axios from 'axios';
 
 function Home(){
+
+    const [repo,setRepo] = useState(null);
+    const [firstTime,setFirstTime] = useState(true);
+
+    useEffect( () => {
+        if(firstTime){
+            console.log('Buscaré la info');
+            setFirstTime(false);
+        }
+        return() => {
+            console.log('Salí de pantalla');
+        }
+    },[firstTime]);
+
+    useLayoutEffect( () => {
+        getData();
+    });
+
+    function getData(){
+        if(firstTime){
+            Axios.get('https://api.github.com/users/sam-hero/repos').then( (response) => {
+                setRepo(response.data[0]);
+            });
+        }
+    }
+
     return(
         <div>
             <h1>Home view</h1>
-            <Container>
+            { repo ? 
+                <Container>
                 <Row>
                     <Col> 
                         <Card>
                             <h5>
                                 Information of Repo 
-                                Name:
                             </h5>
+                            <h3>
+                               {repo.name}
+                            </h3>
+                            <p>{repo.html_url}</p>
                             <Card.Body>
-                                <p>Description:</p>
-                                <p>Created at:</p>
-                                <p>Created By:</p>
+                                <p>Description: {repo.description}</p>
+                                <p>Created By: { repo.owner.login } </p>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -24,17 +55,35 @@ function Home(){
                 <Row>
                     <Col xs="6">
                         <Card>
-                            <h5>Total Commits</h5>
+                            <h5>Language</h5>
+                            {repo.language}
+                        </Card>
+                    </Col>
+                    <Col xs="6">
+                        <Card>
+                            <h5>Created</h5>
+                            {repo.created_at}
+                        </Card>
+                    </Col>
+                    
+                    <Col xs="6">
+                        <Card>
+                            <h5>Last Push</h5>
+                            {repo.pushed_at}
                         </Card>
                     </Col>
 
                     <Col xs="6">
                         <Card>
-                            <h5> Graph of Commits</h5>
+                            <h5>Size</h5>
+                            {repo.size}
                         </Card>
                     </Col>
                 </Row>
             </Container>
+            :
+                <h1>Loading...</h1>
+            }
         </div>
     );
 }

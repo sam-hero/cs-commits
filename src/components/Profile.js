@@ -52,7 +52,7 @@ function Profile(){
                 </Row>
                 <br/>
                 <Row>
-                    <Col>
+                    <Col sm="6">
                         <Card>
                             <h5> All About Him</h5>
                             <Card.Body>
@@ -60,7 +60,13 @@ function Profile(){
                                 <p>Location: {user.location}</p>
                                 <p>Followers: {user.followers}</p>
                                 <p>Twitter: {user.twitter_username}</p>
+                                <p>Website: {user.blog}</p>
                             </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col sm="6">
+                        <Card>
+                            <h5> Graph </h5>
                         </Card>
                     </Col>
                 </Row>
