@@ -7,6 +7,7 @@ import '../App.css';
 function Profile(){
 
     const [user,setUser] = useState(null);
+    const [commits,setCommits] = useState(null);
     const [firstTime,setFirstTime] = useState(true);
 
     useEffect( () => {
@@ -27,6 +28,10 @@ function Profile(){
         if(firstTime){
             Axios.get('https://api.github.com/users/sam-hero').then( (response) => {
                 setUser(response.data);
+            });
+            Axios.get('https://api.github.com/repos/sam-hero/cs-commits/stats/commit_activity').then( (response) => {
+                console.log(response.data[51])
+                setCommits(response.data[51]);//lastWeek
             });
         }
     }
@@ -67,6 +72,8 @@ function Profile(){
                     <Col sm="6">
                         <Card>
                             <h5> Graph </h5>
+                            Commits this week { commits ? commits.total : 0}
+                            
                         </Card>
                     </Col>
                 </Row>
