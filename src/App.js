@@ -8,7 +8,7 @@ import { Link,Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Row class="justify-content">
+      <Row className="justify-content">
         <Nav className="mr-auto">
           <Nav.Link as={Link} to={'/'}>Home</Nav.Link>
           <Nav.Link as={Link} to={'profile'}>Profile</Nav.Link>
